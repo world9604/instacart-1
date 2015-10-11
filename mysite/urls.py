@@ -21,5 +21,5 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
   url(r'^$', views.home, name="home"),
-  url(r'^favicon.ico$', RedirectView.as_view(url='/static/img/favicon.ico'))
+  url(r'^login/$', views.login, name="login")
 ]

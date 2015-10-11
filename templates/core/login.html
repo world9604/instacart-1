@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+			<div class="row">
+				<div class="login-box">
+					<h2>Enter your email address</h2>
+					<form class="form-horizontal" action="index.html" method="post">
+						<fieldset>
+							<input class="input-large col-xs-12" name="email" id="email" type="text" placeholder="type email"/>
+							<div class="clearfix"></div>
+							<div class="clearfix"></div>
+							<button type="submit" class="btn btn-primary col-xs-12">Start Application</button>
+						</fieldset>	
+
+					</form>
+					<hr>
+					<h3>Application In progress?</h3>
+					<p>
+						No problem, we will resume your session based on your email.
+					</p>	
+				</div>
+			</div><!--/row-->
+{% endblock %}
