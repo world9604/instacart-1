@@ -1,0 +1,144 @@
+#cache-creation-form .input-group {
+  float: left;
+}
+
+#create-submit-btn {
+  margin-top: 30px;
+}
+
+.quick-button-small {
+  padding: 1px 7px 1px 7px;
+  width: 100%;
+}
+
+.btn-inline {
+  display: inline-block;
+}
+
+.quick-button-small p {
+  margin: 0 0 0 0;
+}
+
+.table-wrap {
+  margin-top: 10px;
+}
+
+h1.page-title {
+  margin-top: 0px;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+div.dataTables_paginate ul.pagination {
+  margin-right: 15px;
+}
+
+.mini-table-col {
+  width: 300px;
+}
+
+.component-col {
+  width: 200px;
+}
+
+.status-col {
+  width: 120px;
+}
+
+.wait-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba( 199, 223, 242, .5 ) url('../img/inspiroo_logo_loader_pop.gif') 50% 50% no-repeat;
+
+}
+
+.create-cache-btn {
+  float: right;
+}
+
+.togglers input {
+  margin-left: 10px;
+}
+
+.togglers select {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.dropdown-more-info {
+  color: #fff !important;
+  background: #78cd51;
+}
+
+.dropdown-more-info:hover {
+  background: #5db734 !important;
+}
+
+.dropdown-edit {
+  color: #fff !important;
+  background: #67c2ef;
+}
+
+.dropdown-edit:hover {
+  background: #39afea !important;
+}
+
+.dropdown-delete {
+  color: #fff !important;
+  background-color: #ff5454;
+}
+
+.dropdown-delete:hover {
+  background-color: #ff2121 !important;
+}
+
+.header-info {
+  font-size: 50%;
+}
+
+.access-endpoint-row {
+  margin-top: 10px;
+}
+
+.nav-pills li.active a, .nav-pills li.active a:hover, .nav-pills li.active a:focus {
+  background-color: #36a9e1;
+}
+
+.dc-info-col {
+  margin-right: 20px;
+}
+
+.nav-pills :nth-child(3){
+  margin-left: 50px !important;
+}
+
+.create-newdc-btn {
+  margin-top: 61px;
+  height: 435px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.create-newdc-btn span {
+  width: 100%;
+  text-align: center;
+}
+
+.header-btn-group-right {
+  float: right;
+  margin-right: -15px;
+}
+
+.header-btn-group-left {
+  float: right;
+  margin-right: 5px;
+}
+

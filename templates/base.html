@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% block htmlheader %}
+<html lang="en">
+{% endblock %}
+  <head>
+
+    <meta charset="utf-8">
+    <title>Instacart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instacart">
+    <meta name="author" content="Intacart">
+    <link href="/static/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/retina.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+
+    {% block pagemarkups %}
+    {% endblock %}
+
+    <!-- 3rd party libs -->
+    {% block jslib %}
+    {% endblock %}
+
+    <!-- default scripts -->
+    <script src="/static/js/theme/jquery-2.1.0.min.js"></script>
+    <script src="/static/js/theme/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/static/js/lib/bootstrap/bootstrap.min.js"></script>
+
+    <!-- theme scripts -->
+    <script src="/static/js/theme/custom.min.js"></script>
+    <script src="/static/js/theme/core.min.js"></script>
+
+    <!-- page scripts -->
+    {% block pagescripts %}
+    {% endblock %}
+
+    {% block inlinescripts %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <header class="navbar">
+      <div class="container">
+        <a id="main-menu-toggle" class="hidden-xs open"><i class="fa fa-bars"></i></a>
+        <a class="navbar-brand col-lg-2 col-sm-1 col-xs-12" href="{% url 'home' %}"><span>Instacart</span></a>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+
+        <div id="sidebar-left" class="col-lg-2 col-sm-1">
+          <div class="nav-collapse sidebar-nav collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav nav-tabs nav-stacked main-menu">
+            </ul>
+          </div>
+        </div>
+
+        <div id="content" class="col-lg-10 col-sm-11">
+          {% block content %}
+          {% endblock %}
+        </div>
+
+      </div>
+    </div>
+    {% block modal %}
+    {% endblock %}
+
+  </body>
+  <footer>
+    <p>
+      <span class="hidden-phone" style="text-align:right;float:right">Brought to you by Intacart Team.</span>
+    </p>
+  </footer>
+</html>

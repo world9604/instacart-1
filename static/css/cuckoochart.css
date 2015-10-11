@@ -1,0 +1,295 @@
+.chart {
+  position: relative;
+  margin: 0 5px;
+  background-color: #FFF;
+}
+
+/* chart axis */
+.axis {
+  font-size: 11px;
+  fill: #222;
+  stroke-width: 1;
+}
+
+.axis path {
+  fill: #DDD;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+.rule {
+  stroke-width: 1;
+  fill: #EEE;
+}
+
+.yaxis {
+  position: absolute;
+  left: -50px;
+  top: -6px;
+  font-size: 10px;
+  height: 150px;
+  text-align: right;
+}
+
+.yaxis div {
+  width: 45px;
+  overflow: hidden;
+  text-align: right;
+}
+
+.xaxis {
+  font-size: 10px;
+  line-height: 1em;
+  margin-top: 5px;
+}
+
+.charts .yaxis,
+.charts .xaxis {
+  font-size: 0.65em;
+}
+
+.chart {
+  position: relative;
+  margin: 0 5px;
+  background-color: #fff;
+}
+
+/* Chart legend styles */
+.legend {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  z-index: 200;
+  overflow: hidden;
+  background: rgba(0, 0, 0, .8);
+  border-radius: 6px;
+  min-width: 150px;
+  padding: 5px;
+}
+
+.chart:hover .legend {
+  opacity: .3;
+}
+
+.chart .legend td {
+  color: #333;
+}
+
+.legend .header {
+  display: block;
+  padding: 4px;
+  border-radius: 0;
+  font-size: 12px;
+}
+
+.legend .header A {
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.legend .time {
+  padding: 5px 0 2px;
+  font-size: 12px;
+}
+
+.legend .time span {
+  margin-left: 2px;
+}
+
+.color-patch {
+  border: 0 solid white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  height: 15px;
+  width: 15px;
+  float: left;
+}
+
+.legend-data {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+}
+
+.timeseries-row {
+  opacity: .4;
+  padding: 3px 1px;
+  font-size: 12px;
+  margin: 0;
+  line-height: 18px;
+  min-height: 20px;
+  _height: 20px;
+  overflow: hidden;
+}
+
+.legend-data .active {
+  opacity: 1;
+}
+
+.timeseries-row div {
+  float: left;
+  margin-left: 2px;
+}
+
+.legend .metric-label {
+  float: left;
+  overflow: hidden;
+  padding: 0 1.5em 0 3px;
+  white-space: nowrap;
+}
+
+.legend.wrap .metric-label {
+  white-space: normal;
+}
+
+.legend .metric-value {
+  color: #e3e3e3;
+  float: right;
+  padding: 0 0.5em 0 10px;
+}
+
+
+
+.viz-widget-container {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.filled-icon:after {
+  content: url('/images/filled-icon.png');
+}
+
+.stack-icon:after {
+  content: url('/images/stack-icon.png');
+}
+
+.outliers-icon:after {
+  content: url('/images/outliers-icon.png');
+}
+
+.settings-container-section {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0px 2px 8px 2px;
+}
+
+#left-settings-section {
+    border-right: 1px solid #ddd;
+    padding-right: 5px;
+    min-height: 100px;
+}
+
+.settings-container-topsection {
+  border-bottom: 1px solid #ddd;
+  padding: 7px 0;
+}
+
+#left-settings-section .settings-container-topsection {
+  border-bottom: none;
+}
+
+.settings-container-title {
+  display: block;
+  font-size: 0.8em;
+  color: #777;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.chart-settings-container {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  padding: 5px;
+  margin:10px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 2px 6px #aaa;
+  max-width: 50%;
+  z-index: 100;
+  background-color:rgba(255,255,255,1);
+  text-align: center;
+  width: 320px;
+}
+
+.chart-settings-container .show-data-type {
+  display: block;
+}
+
+
+.show-data-type .input-append {
+    margin-bottom: 0;
+    position: relative;
+    top: -1px;
+}
+.show-data-type select {
+    font-size: 11px;
+    height: auto;
+    line-height: 18px;
+    margin-bottom: 2px;
+    padding: 1px 0 1px 3px;
+    width: 60px;
+}
+.show-data-type input {
+    font-size: 11px;
+    height: 26px;
+    line-height: 20px;
+    padding: 1px 0 1px 3px;
+    width: 90px;
+}
+
+.chart-header {
+  display: block;
+  height: 25px;
+}
+/* TODO: Pull legend and indicator classes into cuckoochart.css, remove this file from the viz-widget package*/
+/* Chart legend styles */
+#rb-legend {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  z-index: 200;
+  background: rgba(0, 0, 0, .8);
+  border-radius: 6px;
+  min-width: 150px;
+  padding: 5px;
+  font-size: 11px;
+  font-family: 'Tahoma';
+}
+
+#rb-legend #legend-content {
+  height: inherit;
+}
+
+#rb-legend #scrollable-list {
+  overflow-y: auto;
+}
+
+#rb-legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#rb-legend ul li {
+  overflow: hidden;
+}
+
+#rb-legend .color-patch {
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  display: inline-block;
+}
+#rb-legend .metric-name {
+  color: #eee;
+}
+#rb-legend .val-name {
+  float: right;
+}
+/*.hide {
+  display: none;
+}

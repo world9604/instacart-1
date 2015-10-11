@@ -1,0 +1,28 @@
+.dedicated-content h2 a {
+  color: #FFFFFF; !important;
+}
+
+.pool-col {
+  width: 220px;
+}
+.memory-col {
+  width: 100px;
+}
+.qps-col {
+  width: 100px;
+}
+.obs-col {
+  width: 100px;
+}
+.eviction-col {
+  width: 160px;
+}
+.contact-col {
+  width: 230px;
+}
+.port-col {
+  width: 70px;
+}
+.dc-col {
+  width: 80px;
+}

@@ -1,0 +1,84 @@
+/* chart dc indicator prepended with viz-widget class*/
+
+.viz-widget {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+}
+
+.viz-widget .dc-indicator {
+  margin: 0 5px;
+  height: 5px;
+  overflow: hidden;
+}
+
+.viz-widget .indicator {
+  float: left;
+  height: 100%;
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: bold;
+  color: #fff;
+  margin-top: -3px;
+}
+
+.viz-widget .indicator[data-dc=smf1] {
+  /*background-color: #CB5D63;*/
+  background-color: #73C8A9;
+}
+
+.viz-widget .indicator[data-dc=atla] {
+  /*background-color: #499BE5;*/
+  background-color: #E35B5D;
+}
+
+.viz-widget .indicator[data-dc=smfd] {
+  background-color: #1094A5;
+}
+
+.viz-widget .dc-indicator:hover {
+  margin-top: -11px;
+  height: 16px;
+}
+
+/* chart-settings styles */
+
+.viz-widget .chart-control {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+    display: inline-block;
+    float: right;
+    opacity: 0.7;
+    padding: 0 3px;
+    margin: 4px;
+}
+.viz-widget .chart-control:hover {
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+}
+.viz-widget .chart-control.active {
+    border: 1px solid #BBBBBB;
+    border-radius: 5px 5px 0 0;
+    z-index: 200;
+}
+
+.viz-widget .widget-chart {
+  padding: 5px 0 50px 40px;
+}
+
+.viz-widget .chart-title {
+  font-size: 10px;
+  font-weight: bold;
+  color: #666;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-left: 8px;
+  display: inline-block;
+  float: left;
+}
+
+.viz-widget .chart-title:hover {
+  text-decoration: underline;
+}

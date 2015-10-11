@@ -1,0 +1,270 @@
+#viz-content {
+  margin-top: 20px;
+  width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#tip-and-arrow {
+  position: relative;
+  float: right;
+}
+
+#select-a-pool {
+  margin: 0px;
+  position: absolute;
+  top: 150px;
+  right: -100px;
+  width: 350px;
+}
+
+#select-a-pool h3 {
+  margin: 0px;
+}
+
+#pool-arrow {
+  margin: 0px;
+  position: absolute;
+  top: 50px;
+  right: -60px;
+}
+
+#arrow-tip {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 12px 12px 12px;
+  border-color: transparent transparent #3a87ad transparent;
+  float: right;
+  position: relative;
+  left: 9px;
+  top: -2px;
+}
+
+#arrow-curve {
+  border-color: transparent #3a87ad transparent transparent;
+  width: 100px;
+  height: 100px;
+  border-radius: 0px 0px 90px 0px;
+  border-width: 5px;
+  border-style: solid;
+}
+
+.left-well {
+  display: inline-block;
+  /*width: 280px;*/
+  vertical-align: top;
+}
+
+.control-btn {
+  margin: 2px 10px;
+}
+
+form{
+  width: 220px;
+  margin: 10px 0px 0px 10px;
+  padding: 10px;
+}
+
+.form-horizontal .control-label {
+  width: 50px;
+}
+
+.form-horizontal .form-actions {
+  padding: 20px 0 0 0;
+}
+
+.form-horizontal .controls {
+  margin-left: 0px;
+}
+
+.form-actions {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.help-block {
+  font-size: .65em;
+  display: inline-block;
+  width: 125px;
+  line-height: 1.5em;
+  vertical-align: bottom;
+}
+
+.graph-container {
+  margin: auto;
+  display: inline-block;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis .label {
+  fill: #bdbdbd;
+  font-size: 15px;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+  shape-rendering: geometricPrecision;
+}
+
+.label {
+  font-weight: normal;
+  text-rendering: geometricPrecision;
+  text-shadow: none;
+  font-size: 10px;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.line.brush {
+  stroke-width: 0.5px;
+}
+
+.d3-tip {
+  line-height: 1.5em;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 10px;
+  font-family: sans-serif;
+}
+
+/* Overrides weird bootstrap style */ 
+.d3-tip p {
+  margin: 0px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+}
+
+/* Eastward tooltips */
+.d3-tip.e:after {
+  content: "\25C0";
+  margin: -4px 0 0 0;
+  top: 50%;
+  left: -8px;
+}
+
+/* Northward tooltips */
+.d3-tip.n:after {
+  content: "\25BC";
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+  text-align: center;
+}
+
+svg {
+  display: inline-block;
+}
+
+.ratepath {
+  fill: none;
+  stroke: black;
+}
+
+.box {
+  font: 10px sans-serif;
+}
+
+.boxgroup line,
+.boxgroup rect,
+.boxgroup circle {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.boxgroup .center {
+  stroke-dasharray: 3,3;
+}
+
+.boxgroup .outlier {
+  fill: none;
+  stroke: #ccc;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.circles circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+.legend-rect {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin: 0px 5px 0px 0px;
+}
+
+.legend-p {
+  display: inline-block;
+}
+
+/* Bootstrap additions */
+
+[data-toggle="buttons"]>.btn>input[type="radio"], [data-toggle="buttons"]>.btn>input[type="checkbox"] {
+  display: none;
+}
+
+.btn:active, .btn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+  box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+}
+
+.hot-keys-table {
+  margin: 20px 0 0 0;
+}
+
+table {
+  table-layout:fixed;
+  width:100%;
+  overflow:hidden;
+  word-wrap:break-word;
+}
+
+.hot-keys-table .table-header {
+  font-weight: bold;
+}
+
+.radio-sidebar {
+  display: none;
+}
+
+a.label {
+  font-size: 12px;
+}
