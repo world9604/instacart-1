@@ -64,9 +64,7 @@ def apply(request):
       user.quiz_started_date = datetime.datetime.now()
       user.full_clean()
       user.save()
-      return redirect('decider')
-
-  raise Http404
+  return redirect('decider')
 
 
 def quiz(request):
@@ -90,4 +88,4 @@ def quiz(request):
   # elif user.stage == 'hired':
   #   return render(request, 'core/hired.html')
 
-  raise Http404
+  return redirect('decider')
