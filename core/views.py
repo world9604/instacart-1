@@ -171,8 +171,6 @@ def funnels(request, start_date, end_date):
       if user.stage == date_type:
         break;
 
-  print buckets
-
   results = {}
   begin_date = start_date
   for i in range(len(buckets)):
