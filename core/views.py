@@ -122,5 +122,9 @@ def quiz_completed(request):
   return redirect('decider')
 
 
-def funnels(request):
+def funnels(request, start_date, end_date):
+  start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
+  end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d')
+  print 'start', start_date
+  print 'end', end_date
   return JsonResponse({'foo': 'bar'})

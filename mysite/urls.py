@@ -26,5 +26,5 @@ urlpatterns = [
   url(r'^quiz/$', views.quiz, name="quiz"),
   url(r'^decider/$', views.decider, name="decider"),
   url(r'^quiz_completed/$', views.quiz_completed, name="quiz_completed"),
-  url(r'^funnels.json/$', views.funnels, name="funnels")
+  url(r'^funnels.json/(?P<start_date>[0-9-]+)/(?P<end_date>[0-9-]+)$', views.funnels, name="funnels")
 ]
