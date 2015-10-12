@@ -9,4 +9,9 @@ def home(request):
 
 
 def login(request):
-  return render(request, 'core/login.html')
+  if request.method == 'GET':
+    return render(request, 'core/login.html')
+
+  elif request.method == 'POST':
+    print 'here'
+    return render(request, 'core/login.html')
