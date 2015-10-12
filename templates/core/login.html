@@ -7,6 +7,11 @@
 					<h2>Enter your email address</h2>
           <form class="form-horizontal" action="{% url 'login' %}" method="post">{% csrf_token %}
 						<fieldset>
+              {% if error_msg %}
+                <div class="error_msg">
+                  {{error_msg}}
+                </div>
+              {% endif %}
 							<input class="input-large col-xs-12" name="email" id="email" type="text" placeholder="type email"/>
 							<div class="clearfix"></div>
 							<div class="clearfix"></div>

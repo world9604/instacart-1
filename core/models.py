@@ -14,12 +14,12 @@ class User(models.Model):
       ('hired', 'hired'),
 
   )
-  stage = models.CharField(max_length=30, choices=STAGE_CHOICES)
+  stage = models.CharField(max_length=30, choices=STAGE_CHOICES, default='applied')
   applied_date = models.DateTimeField(auto_now_add=True)
-  quiz_started_date = models.DateTimeField(auto_now_add=False)
-  quiz_completed_date = models.DateTimeField(auto_now_add=False)
-  onboarding_requested_date = models.DateTimeField(auto_now_add=False)
-  onboarding_completed_date = models.DateTimeField(auto_now_add=False)
-  hired_date = models.DateTimeField(auto_now_add=False)
+  quiz_started_date = models.DateTimeField(auto_now_add=False, blank=True)
+  quiz_completed_date = models.DateTimeField(auto_now_add=False, blank=True)
+  onboarding_requested_date = models.DateTimeField(auto_now_add=False, blank=True)
+  onboarding_completed_date = models.DateTimeField(auto_now_add=False, blank=True)
+  hired_date = models.DateTimeField(auto_now_add=False, blank=True)
 
-  latest_change = models.DateTimeField(auto_now_add=False)
+  latest_change = models.DateTimeField(auto_now_add=True)
