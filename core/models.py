@@ -48,4 +48,4 @@ class User(models.Model):
 
   latest_change = models.DateTimeField(auto_now_add=True)
 
-  quiz = models.OneToOneField(Quiz, null=True)
+  quiz = models.OneToOneField(Quiz, null=True, blank=True)

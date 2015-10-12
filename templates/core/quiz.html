@@ -75,8 +75,104 @@
             </div>
           </div>
 
+        </div> <!--box-content -->
+      </form>   
+    </div> <!--box -->
+
+    <div class="box">
+      <form action="{% url 'quiz' %}" method="post">{% csrf_token %}
+        <div class="box-header">
+          <h2><i class="fa fa-edit"></i>Last Employer Information</h2>
+        </div>
+        <div class="box-content">
+
+          {% if errors %}
+
+          <div class="alert alert-danger">
+            <strong>Errors:</strong>
+            {{errors}}
+          </div>
+
+          {% endif %}
+
+          <div class="form-group">
+            <label class="control-label" for="date01">Last Employer</label>
+            <div class="controls">
+              <div class="input-group col-sm-4">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input type="text" class="form-control" name="last_employer" id="last_employer" value="{{quizForm.data.last_employer}}"/>
+              </div>	
+            </div>
+          </div>
+								<div class="form-group">
+								  <label class="control-label" for="daterange">Dates of Employment</label>
+								  <div class="controls">
+									<div class="input-group col-sm-4">
+										<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+										<input type="text" class="form-control" id="daterange" value="09/09/2013 - 09/28/2015">
+									</div>
+								  </div>
+								</div>
+          
+
+
+        </div> <!--box-content -->
+      </form>   
+    </div> <!--box -->
+    
+    <div class="box">
+      <form action="{% url 'quiz' %}" method="post">{% csrf_token %}
+        <div class="box-header">
+          <h2><i class="fa fa-edit"></i>Previous Employer Information</h2>
+        </div>
+        <div class="box-content">
+
+          {% if errors %}
+
+          <div class="alert alert-danger">
+            <strong>Errors:</strong>
+            {{errors}}
+          </div>
+
+          {% endif %}
+
+          <div class="form-group">
+            <label class="control-label" for="date01">First Name</label>
+            <div class="controls">
+              <div class="input-group col-sm-4">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input type="text" class="form-control" name="firstname" id="firstname" value="{{quizForm.data.firstname}}"/>
+              </div>	
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="date01">Last Name</label>
+            <div class="controls">
+              <div class="input-group col-sm-4">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input type="text" class="form-control" name="lastname" id="lastname" value="{{quizForm.data.lastname}}" />
+              </div>	
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label" for="textarea2">Please explain why would you like to work with us.</label>
+            <div class="controls">
+              <textarea id="reasons" name="reasons" rows="6" style="width:60%">{{quizForm.data.reasons}}</textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="selectError">Are you eligible to work in the United States?</label>
+            <div class="controls">
+              <select id="work_eligible" name="work_eligible" class="form-control" data-rel="chosen">
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div> <!--box-content -->
       </form>   
