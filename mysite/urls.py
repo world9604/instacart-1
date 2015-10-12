@@ -21,5 +21,6 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
   url(r'^$', views.home, name="home"),
-  url(r'^login/$', views.login, name="login")
+  url(r'^login/$', views.login, name="login"),
+  url(r'^apply/$', views.apply, name="apply")
 ]
