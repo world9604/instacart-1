@@ -81,7 +81,9 @@ def quiz(request):
     elif request.method == "POST":
       quizForm = QuizForm(request.POST, request.FILES)
       if quizForm.is_valid():
-        quiz = quizForm.save()
+        quiz = quizForm.save(commit=False)
+        quiz.work_eligible = request.POST['work_eligible'] == 'Yes'
+        quiz.save()
         user.quiz = quiz
         user.stage = 'quiz_completed'
         user.quiz_completed_date = datetime.datetime.now()
