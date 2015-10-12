@@ -13,8 +13,7 @@ class Quiz(models.Model):
   work_eligible = models.BooleanField(default=False)
 
   last_employer = models.CharField(max_length=100, blank=False)
-  last_employer_from = models.DateTimeField(auto_now_add=False, blank=True, null=True)
-  last_employer_to = models.DateTimeField(auto_now_add=False, blank=True, null=True)
+  last_employer_dates = models.CharField(max_length=100, blank=True)
 
   work_monday = models.BooleanField(default=False)
   work_tuesday = models.BooleanField(default=False)

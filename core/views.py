@@ -79,6 +79,7 @@ def quiz(request):
       return render(request, 'core/quiz.html', {'quizForm': quizForm})
 
     elif request.method == "POST":
+      import pdb; pdb.set_trace()
       quizForm = QuizForm(request.POST, request.FILES)
       if quizForm.is_valid():
         quiz = quizForm.save(commit=False)
