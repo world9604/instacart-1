@@ -105,18 +105,6 @@ def quiz(request):
                       {'quizForm': quizForm,
                        'errors': quizForm.errors})
 
-  # elif user.stage == 'quiz_complated':
-  #   return render(request, 'core/quiz_completed.html')
-
-  # elif user.stage == 'onboarding_requested':
-  #   return render(request, 'core/onboarding_requested.html')
-
-  # elif user.stage == 'onboarding_complated':
-  #   return render(request, 'core/onboarding_completed.html')
-
-  # elif user.stage == 'hired':
-  #   return render(request, 'core/hired.html')
-
   return redirect('decider')
 
 def quiz_completed(request):
@@ -179,9 +167,21 @@ def funnels(request, start_date, end_date):
       user_date = getattr(user, date_type + '_date').date()
       slot = find_slot(user_date, start_date, end_date)
       if slot >= 0:
-        bucket[slot][date_type] += 1
+        buckets[slot][date_type] += 1
       if user.stage == date_type:
         break;
 
   print buckets
-  return JsonResponse({'foo': 'bar'})
+
+  results = {}
+  begin_date = start_date
+  for i in range(len(buckets)):
+    start_date_string = start_date.strftime("%Y-%m-%d")
+    end_date = start_date + datetime.timedelta(days=6)
+    end_date_string = end_date.strftime("%Y-%m-%d")
+    key = start_date_string + '-' + end_date_string
+    start_date += datetime.timedelta(days=7)
+
+    results[key] = buckets[i]
+
+  return JsonResponse(results)
