@@ -104,26 +104,26 @@
               </div>	
             </div>
           </div>
-								<div class="form-group">
-								  <label class="control-label" for="daterange">Dates of Employment</label>
-								  <div class="controls">
-									<div class="input-group col-sm-4">
-										<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-										<input type="text" class="form-control" id="daterange" value="09/09/2013 - 09/28/2015">
-									</div>
-								  </div>
-								</div>
-          
+          <div class="form-group">
+            <label class="control-label" for="daterange">Dates of Employment</label>
+            <div class="controls">
+              <div class="input-group col-sm-4">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                <input type="text" class="form-control" id="daterange" value="09/09/2013 - 09/28/2015">
+              </div>
+            </div>
+          </div>
+
 
 
         </div> <!--box-content -->
       </form>   
     </div> <!--box -->
-    
+
     <div class="box">
       <form action="{% url 'quiz' %}" method="post">{% csrf_token %}
         <div class="box-header">
-          <h2><i class="fa fa-edit"></i>Previous Employer Information</h2>
+          <h2><i class="fa fa-edit"></i>Availability</h2>
         </div>
         <div class="box-content">
 
@@ -137,39 +137,41 @@
           {% endif %}
 
           <div class="form-group">
-            <label class="control-label" for="date01">First Name</label>
+            <label class="control-label">What day(s) of the week do you prefer to work? Check all that apply.</label>
+            <div class="controls">
+              <label class="checkbox inline">
+                <input type="checkbox" id="inlineCheckbox1" value="option1"> Monday
+              </label>
+              <label class="checkbox inline">
+                <input type="checkbox" id="inlineCheckbox2" value="option2"> Tuesday
+              </label>
+              <label class="checkbox inline">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> Wednesday
+              </label>
+              <label class="checkbox inline">
+                <input type="checkbox" id="inlineCheckbox1" value="option1"> Thursday
+              </label>
+              <label class="checkbox inline">
+                <input type="checkbox" id="inlineCheckbox2" value="option2"> Friday
+              </label>
+              <label class="checkbox inline">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> Saturday
+              </label>
+              <label class="checkbox inline">
+                <input type="checkbox" id="inlineCheckbox3" value="option3"> Sunday
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="date01">How many hours per week would you like to work?</label>
             <div class="controls">
               <div class="input-group col-sm-4">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input type="text" class="form-control" name="firstname" id="firstname" value="{{quizForm.data.firstname}}"/>
+                <input type="number" min="1" max="40" class="form-control" name="hours_per_week" id="hours_per_week" value="{{quizForm.data.hours_per_week}}"/>
               </div>	
             </div>
           </div>
-          <div class="form-group">
-            <label class="control-label" for="date01">Last Name</label>
-            <div class="controls">
-              <div class="input-group col-sm-4">
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input type="text" class="form-control" name="lastname" id="lastname" value="{{quizForm.data.lastname}}" />
-              </div>	
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="control-label" for="textarea2">Please explain why would you like to work with us.</label>
-            <div class="controls">
-              <textarea id="reasons" name="reasons" rows="6" style="width:60%">{{quizForm.data.reasons}}</textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="selectError">Are you eligible to work in the United States?</label>
-            <div class="controls">
-              <select id="work_eligible" name="work_eligible" class="form-control" data-rel="chosen">
-                <option>Yes</option>
-                <option>No</option>
-              </select>
-            </div>
-          </div>
+          
 
           <div class="form-actions">
             <button type="submit" class="btn btn-primary">Submit</button>
