@@ -10,6 +10,10 @@ from django.http import JsonResponse
 
 import datetime
 
+import pytz
+
+
+from copy import copy
 
 def home(request):
   return render(request, 'core/home.html')
@@ -66,7 +70,9 @@ def apply(request):
       return render(request, 'core/apply.html')
     elif request.method == "POST":
       user.stage = 'quiz_started'
-      user.quiz_started_date = datetime.datetime.now()
+      now = datetime.datetime.now()
+      user.quiz_started_date = now
+      user.latest_change = now
       user.full_clean()
       user.save()
   return redirect('decider')
@@ -90,7 +96,9 @@ def quiz(request):
         quiz.save()
         user.quiz = quiz
         user.stage = 'quiz_completed'
-        user.quiz_completed_date = datetime.datetime.now()
+        now = datetime.datetime.now()
+        user.quiz_completed_date = now
+        user.latest_change = now
         user.save()
       else:
         return render(request, 'core/quiz.html',
@@ -122,9 +130,79 @@ def quiz_completed(request):
   return redirect('decider')
 
 
+def find_slot(date, start_date, end_date):
+  if date < start_date or date > end_date:
+    return -1
+  diff = date - start_date
+  return diff.days / 7
+
+
 def funnels(request, start_date, end_date):
-  start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
-  end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d')
-  print 'start', start_date
-  print 'end', end_date
+  start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d').date()
+  end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d').date()
+  if start_date >= end_date:
+    return JsonResponse({'error': 'start date must comes before end date'})
+  if start_date.weekday() != 0 or end_date.weekday() != 6:
+    return JsonResponse({'error': 'start date/end date must be Monday/Sunday'})
+  diff = end_date - start_date
+  num_entry = (diff.days + 1) / 7
+
+  default_map = {
+      'applied': 0,
+      'quiz_started': 0,
+      'quiz_completed': 0,
+      'onboarding_requested': 0,
+      'onboarding_completed': 0,
+      'hired': 0,
+      'rejected': 0
+  }
+
+  buckets = []
+  for i in range(num_entry):
+    buckets.append(copy(default_map))
+
+  # Query all users
+  all_users = User.objects.all()
+
+  # For each user, find a bucket for each date
+  for user in all_users:
+    print 'user', user.email
+    slot = find_slot(user.applied_date.date(), start_date, end_date)
+    if slot >= 0:
+      buckets[slot]['applied'] += 1
+    if user.stage == 'applied':
+      continue
+
+    slot = find_slot(user.quiz_started_date.date(), start_date, end_date)
+    if slot >= 0:
+      buckets[slot]['quiz_started'] += 1
+    if user.stage == 'quiz_started':
+      continue
+
+    slot = find_slot(user.quiz_completed_date.date(), start_date, end_date)
+    if slot >= 0:
+      buckets[slot]['quiz_completed'] += 1
+    if user.stage == 'quiz_completed':
+      continue
+
+    slot = find_slot(user.onboarding_requested_date.date(), start_date, end_date)
+    if slot >= 0:
+      buckets[slot]['onboarding_requested'] += 1
+    if user.stage == 'onboarding_requested':
+      continue
+
+    slot = find_slot(user.onboarding_completed_date.date(), start_date, end_date)
+    if slot >= 0:
+      buckets[slot]['onboarding_completed'] += 1
+    if user.stage == 'onboarding_completed':
+      continue
+
+    slot = find_slot(user.hired_date, start_date.date(), end_date)
+    if slot >= 0:
+      buckets[slot]['hired'] += 1
+
+  
+  # all_users = Users.objects.all()
+  print buckets
+  # return JsonResponse({'foo': 'bar'})
   return JsonResponse({'foo': 'bar'})
