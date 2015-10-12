@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class User(models.Model):
-  email = models.EmailField(blank=False)
+  email = models.EmailField(blank=False, unique=True)
 
   STAGE_CHOICES = (
       ('applied', 'applied'),

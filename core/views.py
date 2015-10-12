@@ -27,7 +27,7 @@ def login(request):
         'error_msg': error_msg
       })
 
-    return render(request, 'core/login.html')
+    request.session['email'] = email
 
   else:
     raise Http404
