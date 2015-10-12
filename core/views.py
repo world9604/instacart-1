@@ -164,45 +164,24 @@ def funnels(request, start_date, end_date):
   # Query all users
   all_users = User.objects.all()
 
+  ordered_date_type = [
+      'applied',
+      'quiz_started',
+      'quiz_completed',
+      'onboarding_requested',
+      'onboarding_completed',
+      'hired'
+  ]
+
   # For each user, find a bucket for each date
   for user in all_users:
-    print 'user', user.email
-    slot = find_slot(user.applied_date.date(), start_date, end_date)
-    if slot >= 0:
-      buckets[slot]['applied'] += 1
-    if user.stage == 'applied':
-      continue
+    for date_type in ordered_date_type:
+      user_date = getattr(user, date_type + '_date').date()
+      slot = find_slot(user_date, start_date, end_date)
+      if slot >= 0:
+        bucket[slot][date_type] += 1
+      if user.stage == date_type:
+        break;
 
-    slot = find_slot(user.quiz_started_date.date(), start_date, end_date)
-    if slot >= 0:
-      buckets[slot]['quiz_started'] += 1
-    if user.stage == 'quiz_started':
-      continue
-
-    slot = find_slot(user.quiz_completed_date.date(), start_date, end_date)
-    if slot >= 0:
-      buckets[slot]['quiz_completed'] += 1
-    if user.stage == 'quiz_completed':
-      continue
-
-    slot = find_slot(user.onboarding_requested_date.date(), start_date, end_date)
-    if slot >= 0:
-      buckets[slot]['onboarding_requested'] += 1
-    if user.stage == 'onboarding_requested':
-      continue
-
-    slot = find_slot(user.onboarding_completed_date.date(), start_date, end_date)
-    if slot >= 0:
-      buckets[slot]['onboarding_completed'] += 1
-    if user.stage == 'onboarding_completed':
-      continue
-
-    slot = find_slot(user.hired_date, start_date.date(), end_date)
-    if slot >= 0:
-      buckets[slot]['hired'] += 1
-
-  
-  # all_users = Users.objects.all()
   print buckets
-  # return JsonResponse({'foo': 'bar'})
   return JsonResponse({'foo': 'bar'})
