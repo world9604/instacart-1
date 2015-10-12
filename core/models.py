@@ -10,7 +10,7 @@ class User(models.Model):
       ('quiz_started', 'quiz_started'),
       ('quiz_completed', 'quiz_completed'),
       ('onboarding_requested', 'onboarding_requested'),
-      ('onboarding_completed', 'onboarding_complated'),
+      ('onboarding_completed', 'onboarding_completed'),
       ('hired', 'hired'),
 
   )

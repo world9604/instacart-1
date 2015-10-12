@@ -38,4 +38,22 @@ def login(request):
 
 
 def apply(request):
-  return render(request, 'core/apply.html')
+  user = User.objects.get(id=request.sessions['uid'])
+
+  if user.stage == 'applied':
+    return render(request, 'core/apply.html')
+
+  elif user.stage == 'quiz_started':
+    return render(request, 'core/quiz.html')
+
+  elif user.stage == 'quiz_complated':
+    return render(request, 'core/quiz_completed.html')
+
+  elif user.stage == 'onboarding_requested':
+    return render(request, 'core/onboarding_requested.html')
+
+  elif user.stage == 'onboarding_complated':
+    return render(request, 'core/onboarding_completed.html')
+
+  elif user.stage == 'hired':
+    return render(request, 'core/hired.html')
