@@ -142,3 +142,7 @@ div.dataTables_paginate ul.pagination {
   margin-right: 5px;
 }
 
+.requirement-box {
+  padding-left: 170px;
+  padding-right: 170px;
+}

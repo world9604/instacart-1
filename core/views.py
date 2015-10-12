@@ -38,7 +38,9 @@ def login(request):
 
 
 def apply(request):
-  user = User.objects.get(id=request.sessions['uid'])
+  if 'uid' not in request.session:
+    return redirect('login')
+  user = User.objects.get(id=request.session['uid'])
 
   if user.stage == 'applied':
     return render(request, 'core/apply.html')
@@ -57,3 +59,6 @@ def apply(request):
 
   elif user.stage == 'hired':
     return render(request, 'core/hired.html')
+
+  else:
+    raise Http404
