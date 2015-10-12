@@ -153,5 +153,9 @@ div.dataTables_paginate ul.pagination {
   -webkit-border-radius: 0 0 2px 2px;
   -moz-border-radius: 0 0 2px 2px;
   border-radius: 0 0 2px 2px;
+}
 
+
+.requirement-box-inside .row {
+  margin-bottom: 20px;
 }
