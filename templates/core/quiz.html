@@ -32,12 +32,10 @@
         <div class="box-content">
 
           {% if errors %}
-
           <div class="alert alert-danger">
             <strong>Errors:</strong>
             {{errors}}
           </div>
-
           {% endif %}
 
           <div class="form-group">
@@ -84,15 +82,6 @@
         </div>
         <div class="box-content">
 
-          {% if errors %}
-
-          <div class="alert alert-danger">
-            <strong>Errors:</strong>
-            {{errors}}
-          </div>
-
-          {% endif %}
-
           <div class="form-group">
             <label class="control-label" for="date01">Last Employer</label>
             <div class="controls">
@@ -107,8 +96,7 @@
             <div class="controls">
               <div class="input-group col-sm-4">
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                {# <input type="text" class="form-control" id="last_employer_dates" name="last_employer_dates" value="{{quizForm.data.last_employer_dates}}"> #}
-                <input type="text" class="form-control" id="last_employer_dates" name="last_employer_dates" value="09/09/2013 - 09/28/2015">
+                <input type="text" class="form-control" id="daterange" name="last_employer_dates" value="{{quizForm.data.last_employer_dates}}">
               </div>
             </div>
           </div>
@@ -124,39 +112,60 @@
         </div>
         <div class="box-content">
 
-          {% if errors %}
-
-          <div class="alert alert-danger">
-            <strong>Errors:</strong>
-            {{errors}}
-          </div>
-
-          {% endif %}
-
           <div class="form-group">
             <label class="control-label">What day(s) of the week do you prefer to work? Check all that apply.</label>
             <div class="controls">
               <label class="checkbox inline">
-                <input type="checkbox" id="work_monday" name="work_monday" value="Yes"> Monday
+                <input type="checkbox" id="work_monday" name="work_monday" value="Yes"
+                {% if 'work_monday' in quizForm.data %}
+                checked
+                {% endif %}
+                > Monday
               </label>
               <label class="checkbox inline">
-                <input type="checkbox" id="work_tuesday" name="work_tuesday" value="Yes"> Tuesday
+                <input type="checkbox" id="work_tuesday" name="work_tuesday" value="Yes"
+                {% if 'work_tuesday' in quizForm.data %}
+                checked
+                {% endif %}
+                > Tuesday
               </label>
               <label class="checkbox inline">
-                <input type="checkbox" id="work_wednesday" name="work_wesnesday" value="Yes"> Wednesday
+                <input type="checkbox" id="work_wednesday" name="work_wednesday" value="Yes"
+                {% if 'work_wednesday' in quizForm.data %}
+                checked
+                {% endif %}
+                > Wednesday
               </label>
               <label class="checkbox inline">
-                <input type="checkbox" id="work_thursday" name="work_thursday" value="option1"> Thursday
+                <input type="checkbox" id="work_thursday" name="work_thursday" value="Yes"
+                {% if 'work_thursday' in quizForm.data %}
+                checked
+                {% endif %}
+                > Thursday
               </label>
               <label class="checkbox inline">
-                <input type="checkbox" id="work_friday" name="work_friday" value="Yes"> Friday
+                <input type="checkbox" id="work_friday" name="work_friday" value="Yes"
+                {% if 'work_friday' in quizForm.data %}
+                checked
+                {% endif %}
+                > Friday
               </label>
               <label class="checkbox inline">
-                <input type="checkbox" id="work_saturday" name="work_saturday" value="Yes"> Saturday
+                <input type="checkbox" id="work_saturday" name="work_saturday" value="Yes"
+                {% if 'work_saturday' in quizForm.data %}
+                checked
+                {% endif %}
+                > Saturday
               </label>
               <label class="checkbox inline">
-                <input type="checkbox" id="work_sunday" name="work_sunday" value="Yes"> Sunday
+                <input type="checkbox" id="work_sunday" name="work_sunday" value="Yes"
+                {% if 'work_sunday' in quizForm.data %}
+                checked
+                {% endif %}
+                > Sunday
               </label>
+
+
             </div>
           </div>
           <div class="form-group">
