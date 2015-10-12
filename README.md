@@ -1,3 +1,6 @@
+github link: https://github.com/petchaero/instacart
+
+
 Installation Guide
 
 This web service runs on Django 1.8.5. I recommend use virtualenv to create a virtual environment that you can install certain packages as needed
@@ -35,3 +38,4 @@ a small number of users.
 Most of the logic is in core/views.py
 
 Let me know if you have any problems running it.
+
