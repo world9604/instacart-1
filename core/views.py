@@ -6,6 +6,8 @@ from django.http import Http404
 
 from django.core.exceptions import ValidationError
 
+import datetime
+
 
 def home(request):
   return render(request, 'core/home.html')
@@ -32,9 +34,22 @@ def login(request):
         })
 
     request.session['uid'] = user.id
-    return redirect('apply')
+    return redirect('decider')
   else:
     raise Http404
+
+
+def decider(request):
+  if 'uid' not in request.session:
+    return redirect('login')
+  user = User.objects.get(id=request.session['uid'])
+
+
+  if user.stage == 'applied':
+    return redirect('apply')
+
+  if user.stage == 'quiz_started':
+    return redirect('quiz')
 
 
 def apply(request):
@@ -43,22 +58,37 @@ def apply(request):
   user = User.objects.get(id=request.session['uid'])
 
   if user.stage == 'applied':
-    return render(request, 'core/apply.html')
+    if request.method == "GET":
+      return render(request, 'core/apply.html')
+    elif request.method == "POST":
+      user.stage = 'quiz_started'
+      user.quiz_started_date = datetime.datetime.now()
+      user.full_clean()
+      user.save()
+      return redirect('decider')
 
-  elif user.stage == 'quiz_started':
-    return render(request, 'core/quiz.html')
+  raise Http404
 
-  elif user.stage == 'quiz_complated':
-    return render(request, 'core/quiz_completed.html')
 
-  elif user.stage == 'onboarding_requested':
-    return render(request, 'core/onboarding_requested.html')
+def quiz(request):
+  if 'uid' not in request.session:
+    return redirect('login')
+  user = User.objects.get(id=request.session['uid'])
 
-  elif user.stage == 'onboarding_complated':
-    return render(request, 'core/onboarding_completed.html')
+  if user.stage == 'quiz_started':
+    if request.method == "GET":
+      return render(request, 'core/quiz.html')
 
-  elif user.stage == 'hired':
-    return render(request, 'core/hired.html')
+  # elif user.stage == 'quiz_complated':
+  #   return render(request, 'core/quiz_completed.html')
 
-  else:
-    raise Http404
+  # elif user.stage == 'onboarding_requested':
+  #   return render(request, 'core/onboarding_requested.html')
+
+  # elif user.stage == 'onboarding_complated':
+  #   return render(request, 'core/onboarding_completed.html')
+
+  # elif user.stage == 'hired':
+  #   return render(request, 'core/hired.html')
+
+  raise Http404

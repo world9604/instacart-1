@@ -30,9 +30,14 @@
           </div>
         </div>
 
-        <div class="col-xs-4">
+        <div id="continue-btn">
+          <div class="col-xs-4">
+          </div>
+          <form action="{% url 'apply' %}" method="post">{% csrf_token %}
+          <button type="submit" id="continue-btn" class="btn btn-primary col-xs-4">Continue Application</button>
+          </form>
+           
         </div>
-        <button type="submit" id="continue-btn" class="btn btn-primary col-xs-4">Continue Application</button>
 
 
       </div>	 
