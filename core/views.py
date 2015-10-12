@@ -44,7 +44,6 @@ def decider(request):
     return redirect('login')
   user = User.objects.get(id=request.session['uid'])
 
-
   if user.stage == 'applied':
     return redirect('apply')
 
