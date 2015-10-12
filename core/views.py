@@ -31,7 +31,7 @@ def login(request):
       except ValidationError as e:
         error_msg = e.message_dict['email'][0]
         return render(request, 'core/login.html', {
-          'error_msg': error_msg
+            'error_msg': error_msg
         })
 
     request.session['uid'] = user.id
@@ -77,6 +77,19 @@ def quiz(request):
     if request.method == "GET":
       quizForm = QuizForm()
       return render(request, 'core/quiz.html', {'quizForm': quizForm})
+
+    elif request.method == "POST":
+      quizForm = QuizForm(request.POST, request.FILES)
+      if quizForm.is_valid():
+        quiz = quizForm.save()
+        user.quiz = quiz
+        user.stage = 'quiz_completed'
+        user.quiz_completed_date = datetime.datetime.now()
+        user.save()
+      else:
+        return render(request, 'core/quiz.html',
+                      {'quizForm': quizForm,
+                       'errors': quizForm.errors})
 
   # elif user.stage == 'quiz_complated':
   #   return render(request, 'core/quiz_completed.html')
