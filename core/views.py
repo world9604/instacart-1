@@ -6,6 +6,7 @@ from forms import QuizForm
 from django.http import Http404
 
 from django.core.exceptions import ValidationError
+from django.http import JsonResponse
 
 import datetime
 
@@ -119,3 +120,7 @@ def quiz_completed(request):
     return render(request, 'core/quiz_completed.html')
 
   return redirect('decider')
+
+
+def funnels(request):
+  return JsonResponse({'foo': 'bar'})
