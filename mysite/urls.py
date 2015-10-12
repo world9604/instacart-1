@@ -25,5 +25,4 @@ urlpatterns = [
   url(r'^apply/$', views.apply, name="apply"),
   url(r'^quiz/$', views.quiz, name="quiz"),
   url(r'^decider/$', views.decider, name="decider")
-
 ]

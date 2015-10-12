@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from models import User
+from forms import QuizForm
 
 from django.http import Http404
 
@@ -74,7 +75,8 @@ def quiz(request):
 
   if user.stage == 'quiz_started':
     if request.method == "GET":
-      return render(request, 'core/quiz.html')
+      quizForm = QuizForm()
+      return render(request, 'core/quiz.html', {'quizForm': quizForm})
 
   # elif user.stage == 'quiz_complated':
   #   return render(request, 'core/quiz_completed.html')
