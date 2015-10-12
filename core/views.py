@@ -51,6 +51,9 @@ def decider(request):
   if user.stage == 'quiz_started':
     return redirect('quiz')
 
+  if user.stage == 'quiz_completed':
+    return redirect('quiz_completed')
+
 
 def apply(request):
   if 'uid' not in request.session:
@@ -104,5 +107,15 @@ def quiz(request):
 
   # elif user.stage == 'hired':
   #   return render(request, 'core/hired.html')
+
+  return redirect('decider')
+
+def quiz_completed(request):
+  if 'uid' not in request.session:
+    return redirect('login')
+  user = User.objects.get(id=request.session['uid'])
+
+  if user.stage == 'quiz_completed':
+    return render(request, 'core/quiz_completed.html')
 
   return redirect('decider')

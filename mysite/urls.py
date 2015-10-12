@@ -24,5 +24,6 @@ urlpatterns = [
   url(r'^login/$', views.login, name="login"),
   url(r'^apply/$', views.apply, name="apply"),
   url(r'^quiz/$', views.quiz, name="quiz"),
-  url(r'^decider/$', views.decider, name="decider")
+  url(r'^decider/$', views.decider, name="decider"),
+  url(r'^quiz_completed/$', views.quiz_completed, name="quiz_completed"),
 ]
